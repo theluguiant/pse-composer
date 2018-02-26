@@ -1,0 +1,104 @@
+<?php
+
+require 'vendor/autoload.php';
+
+use \theluguiant\PseComposer\Pse as Pse;
+
+
+$client = new Pse();
+
+echo '<br><br>';
+echo '<h1>lista de bancos</h1><br>';
+echo '<pre>';
+echo var_dump($client->services->getBankList());
+echo '</pre>';
+echo '<br><br>';
+echo '<pre>'.var_dump($client->services->params()).'</pre>';
+
+echo '<h1>player</h1><br>';
+$client->services->setPlayerDocumentType('CC');
+$client->services->setPlayerDocument(123456789);
+$client->services->setPlayerFirstName('mauricio');
+$client->services->setPlayerLastName('122');
+$client->services->setPlayerCompany('seadog creative labs');
+$client->services->setPlayerEmailAddress('mauriciogmona@gmail.com');
+$client->services->setPlayerCity('medellin');
+$client->services->setPlayerProvince('antioquia');
+$client->services->setPlayerAddress('cr 51');
+$client->services->setPlayerPhone('2114052');
+$client->services->setPlayerCountry('CO');
+$client->services->setPlayerMobile('3113693636');
+echo $client->services->infoPlayer();
+echo '<br><br>';
+echo '<pre>';
+echo var_dump($client->services->infoPlayer);
+echo '</pre>';
+echo '<br><br>';
+
+echo '<h1>buyer</h1><br>';
+$client->services->setBuyerDocumentType('CE');
+$client->services->setBuyerDocument(123456789);
+$client->services->setBuyerFirstName('mauricio');
+$client->services->setBuyerLastName('122');
+$client->services->setBuyerCompany('seadog creative labs');
+$client->services->setBuyerEmailAddress('mauriciogmona@gmail.com');
+$client->services->setBuyerCity('medellin');
+$client->services->setBuyerProvince('antioquia');
+$client->services->setBuyerAddress('cr 51');
+$client->services->setBuyerPhone(2114052);
+$client->services->setBuyerCountry('CO');
+$client->services->setBuyerMobile(3113693636);
+echo $client->services->infoBuyer();
+echo '<br><br>';
+echo '<pre>';
+echo var_dump($client->services->infoBuyer);
+echo '</pre>';
+echo '<br><br>';
+
+echo '<h1>Shipping</h1><br>';
+$client->services->setShippingDocumentType('CE');
+$client->services->setShippingDocument(123456789);
+$client->services->setShippingFirstName('mauricio');
+$client->services->setShippingLastName('122');
+$client->services->setShippingCompany('seadog creative labs');
+$client->services->setShippingEmailAddress('mauriciogmona@gmail.com');
+$client->services->setShippingCity('medellin');
+$client->services->setShippingProvince('antioquia');
+$client->services->setShippingAddress('cr 51');
+$client->services->setShippingPhone(2114052);
+$client->services->setShippingCountry('CO');
+$client->services->setShippingMobile(3113693636);
+echo $client->services->infoShipping();
+echo '<br><br>';
+echo '<pre>';
+echo var_dump($client->services->infoShipping);
+echo '</pre>';
+echo $client->services->PseAuth->login;
+echo '<br><br>';
+echo $client->services->ipAddress;
+echo '<br><br>';
+echo $client->services->userAgent;
+echo '<br><br>';
+$client->services->setBankCode('1007');
+$client->services->setBankInterface('0');
+$client->services->setReturnURL('http://seadog.com.co/');
+$client->services->setReference('kad2568994dasuudadsasaassasss');
+$client->services->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut');
+$client->services->setLanguage('es');
+$client->services->setCurrency('COP');
+$client->services->setTotalAmount(15000.0);
+$client->services->setTaxAmount((double)5);
+$client->services->setDevolutionBase(2.0);
+$client->services->setTipAmount(1.0);
+echo '<br><br>';
+echo '<h1>Transaction</h1><br>';
+echo '<pre>';
+echo var_dump($client->services->createTransaction());
+echo '</pre>';
+echo '<br><br>';
+echo '<h1>Transaction Information</h1><br>';
+echo '<pre>';
+$client->services->setTransId(1443107535);
+echo var_dump($client->services->getTransactionInformation());
+echo '<br><br>';
+echo '</pre>';
